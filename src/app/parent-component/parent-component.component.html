@@ -1,0 +1,29 @@
+<h1>{{message}}</h1>
+
+<label>
+  <input type="text" [(ngModel)]="userName" placeholder="Enter username here">
+</label>
+<input type="text" [(ngModel)]="userPhone" placeholder="Enter user phone number here">
+
+<h2>Data From Child 1</h2>
+<strong>Name: </strong>  {{userInfo1.name}}
+<strong>Phone: </strong>  {{userInfo1.phone}}
+
+<h2>Data From Child 2</h2>
+<strong>Name: </strong>  {{userInfo2.name}}
+<strong>Phone: </strong>  {{userInfo2.phone}}
+
+<!-- example of  @input directive in Angular-->
+<app-child1 usernameFromParent="{{userName}}" userPhoneFromParent="{{userPhone}}"></app-child1>
+<app-child2 theUserName="{{userName}}" theUserPhone="{{userPhone}}"></app-child2>
+
+
+<strong>Name: </strong>  {{outputUserName}}
+<strong>Phone: </strong>  {{outputUserPhone}}
+
+<app-child-for-output (userNameEvent)="nameEventHandler($event)"
+                      (userPhoneEvent)="phoneEventHandler($event)"></app-child-for-output>
+
+
+
+
